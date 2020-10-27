@@ -9,15 +9,28 @@ namespace PersonalNumber
 {
     class Program
     {
+        static bool YearCheck(string yearstr)
+        {
+            int yearint = Convert.ToInt32(yearstr);
+            if (yearint >= 1753 && yearint <= 2020)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         static void Main(string[] args)
         {
-            string[] numCom = new string[12];
+            bool yearVal;
+            string[] numCom = new string[1];
             int[] prsNr = new int[12] { 1, 9, 9, 9, 1, 1, 2, 2, 7, 1, 3, 1 };
             for (int i = 0; i < 4; i++)
             {
-                numCom[i] = Convert.ToString(prsNr[i]);
+                numCom[0] += Convert.ToString(prsNr[i]);
             }
-            Console.WriteLine(numCom);
+            yearVal = YearCheck(numCom[0]);
             Console.ReadKey();
         }
     }
