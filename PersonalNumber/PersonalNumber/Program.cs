@@ -9,82 +9,13 @@ namespace PersonalNumber
 {
     class Program
     {
-        /*static bool YearCheck(int[] prsNr = new int[])
-        {
-            if (prsNr[0] == 1)
-            {
-                if (prsNr[1] == 7)
-                {
-                    if (prsNr[2] == 5)
-                    {
-                        if (prsNr[3] > 2)
-                        {
-                            return true;
-                        }
-                        else
-                        {
-                            return false;
-                        }
-                    }
-                    else if (prsNr[2] > 5)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-                else if (prsNr[1] > 7)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else if (prsNr[0] == 2)
-            {
-                if (prsNr[1] == 0)
-                {
-                    if (prsNr[2] == 2)
-                    {
-                        if (prsNr[3] == 0)
-                        {
-                            return true;
-                        }
-                        else
-                        {
-                            return false;
-                        }
-                    }
-                    else if (prsNr[2] < 2)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return false;
-            }
-        }*/
         static void Main(string[] args)
         {
-            string numCom = "1"; //Find way to use numCom while it's unnasigned, perhaps as array
+            string[] numCom = new string[12];
             int[] prsNr = new int[12] { 1, 9, 9, 9, 1, 1, 2, 2, 7, 1, 3, 1 };
-            for (int i = 1; i < 4; i++)
+            for (int i = 0; i < 4; i++)
             {
-                numCom += Convert.ToString(prsNr[i]);
+                numCom[i] = Convert.ToString(prsNr[i]);
             }
             Console.WriteLine(numCom);
             Console.ReadKey();
