@@ -22,15 +22,22 @@ namespace PersonalNumber
         }
         static void Main(string[] args)
         {
+            string toChar;
             bool yearBool;
+            bool monthBool;
+            bool daybool;
+            bool numBool;
+            char[] prsNr = new char[12];
             string[] numCom = new string[1];
-            int[] prsNr = new int[12] { 1, 9, 9, 9, 1, 1, 2, 2, 7, 1, 3, 1 };
+            Console.Write("Skriv ditt personummer:");
+            toChar = Console.ReadLine();
+            prsNr = toChar.ToCharArray();
             for (int i = 0; i < 4; i++)
             {
                 numCom[0] += prsNr[i];
             }
             yearBool = YearCheck(Convert.ToInt32(numCom[0]));
-            if (yearBool == true)
+            if (yearBool)
             {
                 Console.WriteLine("true");
             }
