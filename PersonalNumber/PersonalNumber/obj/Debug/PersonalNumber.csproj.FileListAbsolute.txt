@@ -1,0 +1,7 @@
+C:\Users\Dator 1\Source\Repos\PersonalNr\PersonalNumber\PersonalNumber\bin\Debug\PersonalNumber.exe.config
+C:\Users\Dator 1\Source\Repos\PersonalNr\PersonalNumber\PersonalNumber\bin\Debug\PersonalNumber.exe
+C:\Users\Dator 1\Source\Repos\PersonalNr\PersonalNumber\PersonalNumber\bin\Debug\PersonalNumber.pdb
+C:\Users\Dator 1\Source\Repos\PersonalNr\PersonalNumber\PersonalNumber\obj\Debug\PersonalNumber.csprojAssemblyReference.cache
+C:\Users\Dator 1\Source\Repos\PersonalNr\PersonalNumber\PersonalNumber\obj\Debug\PersonalNumber.csproj.CoreCompileInputs.cache
+C:\Users\Dator 1\Source\Repos\PersonalNr\PersonalNumber\PersonalNumber\obj\Debug\PersonalNumber.exe
+C:\Users\Dator 1\Source\Repos\PersonalNr\PersonalNumber\PersonalNumber\obj\Debug\PersonalNumber.pdb

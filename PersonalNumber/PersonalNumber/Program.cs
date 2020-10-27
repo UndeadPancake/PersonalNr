@@ -8,7 +8,7 @@ namespace PersonalNumber
 {
     class Program
     {
-        static bool YearCheck(int[] prsNr = new int[])
+        /*static bool YearCheck(int[] prsNr = new int[])
         {
             if (prsNr[0] == 1)
             {
@@ -76,14 +76,16 @@ namespace PersonalNumber
             {
                 return false;
             }
-        }
+        }*/
         static void Main(string[] args)
         {
+            string numCom = "1";
             int[] prsNr = new int[12] { 1, 9, 9, 9, 1, 1, 2, 2, 7, 1, 3, 1 };
-            if (YearCheck(prsNr[]);
-            { 
-                Console.WriteLine("true"); 
+            for (int i = 1; i < 4; i++)
+            {
+                numCom += Convert.ToString(prsNr[i]);
             }
+            Console.WriteLine(numCom);
             Console.ReadKey();
         }
     }
