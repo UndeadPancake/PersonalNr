@@ -9,10 +9,9 @@ namespace PersonalNumber
 {
     class Program
     {
-        static bool YearCheck(string yearstr)
+        static bool YearCheck(int year)
         {
-            int yearint = Convert.ToInt32(yearstr);
-            if (yearint >= 1753 && yearint <= 2020)
+            if (year >= 1753 && year <= 2020)
             {
                 return true;
             }
@@ -24,11 +23,11 @@ namespace PersonalNumber
         static void Main(string[] args)
         {
             bool yearBool;
-            string[] numCom = new string[1];
+            int[] numCom = new int[1];
             int[] prsNr = new int[12] { 1, 9, 9, 9, 1, 1, 2, 2, 7, 1, 3, 1 };
             for (int i = 0; i < 4; i++)
             {
-                numCom[0] += Convert.ToString(prsNr[i]);
+                numCom[0] += prsNr[i];
             }
             yearBool = YearCheck(numCom[0]);
             Console.ReadKey();
