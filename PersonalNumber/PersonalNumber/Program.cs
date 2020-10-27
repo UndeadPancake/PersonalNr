@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -79,7 +80,7 @@ namespace PersonalNumber
         }*/
         static void Main(string[] args)
         {
-            string numCom = "1";
+            string numCom = "1"; //Find way to use numCom while it's unnasigned, perhaps as array
             int[] prsNr = new int[12] { 1, 9, 9, 9, 1, 1, 2, 2, 7, 1, 3, 1 };
             for (int i = 1; i < 4; i++)
             {
