@@ -23,13 +23,18 @@ namespace PersonalNumber
         static void Main(string[] args)
         {
             bool yearBool;
-            int[] numCom = new int[1];
+            string[] numCom = new string[1];
             int[] prsNr = new int[12] { 1, 9, 9, 9, 1, 1, 2, 2, 7, 1, 3, 1 };
             for (int i = 0; i < 4; i++)
             {
                 numCom[0] += prsNr[i];
             }
-            yearBool = YearCheck(numCom[0]);
+            yearBool = YearCheck(Convert.ToInt32(numCom[0]));
+            if (yearBool == true)
+            {
+                Console.WriteLine("true");
+            }
+            Console.WriteLine(numCom[0]);
             Console.ReadKey();
         }
     }
