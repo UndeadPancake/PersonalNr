@@ -56,6 +56,22 @@ namespace PersonalNumber
                 }
             }
         }
+        static bool NumCheck(int num)
+        {
+            if (num >= 000 && num <= 999) return true;
+            else return false;
+        }
+        static bool GenderCheck(int num)
+        {
+            string toChar = Convert.ToString(num);
+            char[] charray = new char[3];
+            double numDouble;
+            charray = toChar.ToCharArray();
+            num = charray[2];
+            numDouble = (double)num;
+            if (num / 2 == numDouble / 2) return true;
+            else return false;
+        }
         static void Main(string[] args)
         {
             string toChar;
@@ -83,13 +99,19 @@ namespace PersonalNumber
                 numCom[2] += prsNr[i];
             }
             dayBool = DayCheck(Convert.ToInt32(numCom[0]), Convert.ToInt32(numCom[1]), Convert.ToInt32(numCom[2]));
-            if (yearBool && monthBool && dayBool)
+            for (int i = 8; i < 11; i++)
+            {
+                numCom[3] += prsNr[i];
+            }
+            numBool = NumCheck(Convert.ToInt32(numCom[3]));
+            if (yearBool && monthBool && dayBool && numBool)
             {
                 Console.WriteLine("true");
             }
             Console.WriteLine(numCom[0]);
             Console.WriteLine(numCom[1]);
             Console.WriteLine(numCom[2]);
+            Console.WriteLine(numCom[3]);
             Console.ReadKey();
         }
     }
