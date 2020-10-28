@@ -61,14 +61,9 @@ namespace PersonalNumber
             if (num >= 000 && num <= 999) return true;
             else return false;
         }
-        static bool GenderCheck(int num)
+        static bool GenderCheck(int num) 
         {
-            string toChar = Convert.ToString(num);
-            char[] charray = new char[3];
-            double numDouble;
-            charray = toChar.ToCharArray();
-            num = charray[2];
-            numDouble = (double)num;
+            double numDouble = (double)num;
             if (num / 2 == numDouble / 2) return true;
             else return false;
         }
@@ -112,7 +107,7 @@ namespace PersonalNumber
             {
                 Console.Write("Ditt personummer är inte giltigt. ");
             }
-            if (GenderCheck(Convert.ToInt32(numCom[3])))
+            if (GenderCheck(Convert.ToInt32(prsNr[10])))
             {
                 Console.WriteLine("Du är en kvinna.");
             }
