@@ -106,12 +106,20 @@ namespace PersonalNumber
             numBool = NumCheck(Convert.ToInt32(numCom[3]));
             if (yearBool && monthBool && dayBool && numBool)
             {
-                Console.WriteLine("true");
+                Console.Write("Ditt personummer är giltigt. ");
             }
-            Console.WriteLine(numCom[0]);
-            Console.WriteLine(numCom[1]);
-            Console.WriteLine(numCom[2]);
-            Console.WriteLine(numCom[3]);
+            else
+            {
+                Console.Write("Ditt personummer är inte giltigt. ");
+            }
+            if (GenderCheck(Convert.ToInt32(numCom[3])))
+            {
+                Console.WriteLine("Du är en kvinna.");
+            }
+            else
+            {
+                Console.WriteLine("Du är en man.");
+            }
             Console.ReadKey();
         }
     }
