@@ -11,14 +11,13 @@ namespace PersonalNumber
     {
         static bool YearCheck(int year)
         {
-            if (year >= 1753 && year <= 2020)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            if (year >= 1753 && year <= 2020) return true;
+            else return false;
+        }
+        static bool MonthCheck(int month)
+        {
+            if (month >= 1 && month <= 12) return true;
+            else return false;
         }
         static void Main(string[] args)
         {
@@ -28,7 +27,7 @@ namespace PersonalNumber
             bool daybool;
             bool numBool;
             char[] prsNr = new char[12];
-            string[] numCom = new string[1];
+            string[] numCom = new string[4];
             Console.Write("Skriv ditt personummer:");
             toChar = Console.ReadLine();
             prsNr = toChar.ToCharArray();
@@ -37,11 +36,17 @@ namespace PersonalNumber
                 numCom[0] += prsNr[i];
             }
             yearBool = YearCheck(Convert.ToInt32(numCom[0]));
-            if (yearBool)
+            for (int i = 4; i < 6; i++)
+            {
+                numCom[1] += prsNr[i];
+            }
+            monthBool = MonthCheck(Convert.ToInt32(numCom[1]));
+            if (yearBool && monthBool)
             {
                 Console.WriteLine("true");
             }
             Console.WriteLine(numCom[0]);
+            Console.WriteLine(numCom[1]);
             Console.ReadKey();
         }
     }
