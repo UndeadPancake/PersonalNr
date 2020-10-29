@@ -99,8 +99,8 @@ namespace PersonalNumber
                 numConv[3] += prsNr[i];   //Gets numbers as string
             }
             numBool = NumCheck(Convert.ToInt32(numConv[3]));
-            if (yearBool && monthBool && dayBool && numBool)   //Checks if all numbers are valid, results saved in booleans to not have to invoke every method here
-            {
+            if (yearBool && monthBool && dayBool && numBool)   //Checks if all numbers are valid, results have been saved in booleans 
+            {                                                  //to not have to invoke every method here
                 Console.Write("Ditt personummer är giltigt. ");
             }
             else
