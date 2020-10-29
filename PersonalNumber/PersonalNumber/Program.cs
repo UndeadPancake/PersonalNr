@@ -64,8 +64,120 @@ namespace PersonalNumber
         static bool GenderCheck(int num) //Checks gender by creating an equal double, dividing both in half and checking if they're still equal
         {
             double numDouble = (double)num;
-            if (num / 2 == numDouble / 2) return true;
-            else return false;
+            if (num / 2 == numDouble / 2) return true;     //If equal, it is an even number and the user is female
+            else return false;                             //If not, it is an odd number and the user is male
+        }
+        static string NumConvMinus(string input)
+        {
+            string output = "";
+            char temp;
+            int year;
+            char[] inputArray = new char[12];
+            char[] convertArray = new char[12];
+            inputArray = input.ToCharArray();
+            input = Convert.ToString(inputArray[0]) + Convert.ToString(inputArray[1]);
+            year = Convert.ToInt32(input);
+            if (year >= 21)
+            {
+                for (int i = 2; i < 12; i++)
+                {
+                    if (inputArray[i - 2] == '-')
+                    {
+                        inputArray[i - 2] = inputArray[i - 1];
+                        inputArray[i - 1] = inputArray[i];
+                        inputArray[i] = inputArray[i + 1];
+                        inputArray[i + 1] = inputArray[i + 2];
+                        convertArray[i] = inputArray[i - 2];
+                    }
+                    else
+                    {
+                        convertArray[i] = inputArray[i - 2];
+                    }
+                }
+                convertArray[0] = '1';
+                convertArray[1] = '9';
+            }
+            else
+            {
+                for (int i = 2; i < 12; i++)
+                {
+                    if (inputArray[i - 2] == '-')
+                    {
+                        inputArray[i - 2] = inputArray[i - 1];
+                        inputArray[i - 1] = inputArray[i];
+                        inputArray[i] = inputArray[i + 1];
+                        inputArray[i + 1] = inputArray[i + 2];
+                        convertArray[i] = inputArray[i - 2];
+                    }
+                    else
+                    {
+                        convertArray[i] = inputArray[i - 2];
+                    }
+                }
+                convertArray[0] = '2';
+                convertArray[1] = '0';
+            }
+            for (int i = 0; i < 12; i++)
+            {
+                output += convertArray[i];
+            }
+            return output;
+        }
+        static string NumConvPlus(string input)
+        {
+            string output = "";
+            char temp;
+            int year;
+            char[] inputArray = new char[12];
+            char[] convertArray = new char[12];
+            inputArray = input.ToCharArray();
+            input = Convert.ToString(inputArray[0]) + Convert.ToString(inputArray[1]);
+            year = Convert.ToInt32(input);
+            if (year >= 21)
+            {
+                for (int i = 2; i < 12; i++)
+                {
+                    if (inputArray[i - 2] == '+')
+                    {
+                        inputArray[i - 2] = inputArray[i - 1];
+                        inputArray[i - 1] = inputArray[i];
+                        inputArray[i] = inputArray[i + 1];
+                        inputArray[i + 1] = inputArray[i + 2];
+                        convertArray[i] = inputArray[i - 2];
+                    }
+                    else
+                    {
+                        convertArray[i] = inputArray[i - 2];
+                    }
+                }
+                convertArray[0] = '1';
+                convertArray[1] = '8';
+            }
+            else
+            {
+                for (int i = 2; i < 12; i++)
+                {
+                    if (inputArray[i - 2] == '+')
+                    {
+                        inputArray[i - 2] = inputArray[i - 1];
+                        inputArray[i - 1] = inputArray[i];
+                        inputArray[i] = inputArray[i + 1];
+                        inputArray[i + 1] = inputArray[i + 2];
+                        convertArray[i] = inputArray[i - 2];
+                    }
+                    else
+                    {
+                        convertArray[i] = inputArray[i - 2];
+                    }
+                }
+                convertArray[0] = '1';
+                convertArray[1] = '9';
+            }
+            for (int i = 0; i < 12; i++)
+            {
+                output += convertArray[i];
+            }
+            return output;
         }
         static void Main(string[] args)
         {
@@ -79,6 +191,16 @@ namespace PersonalNumber
             Console.Write("Skriv ditt personummer:");
             toChar = Console.ReadLine();  //To char variable used to convert user input to string format
             prsNr = toChar.ToCharArray(); //Converts user string input to char array
+            if (prsNr[6] == '-')
+            {
+                toChar = NumConvMinus(toChar);
+                prsNr = toChar.ToCharArray();
+            }
+            else if (prsNr[6] == '+')
+            {
+                toChar = NumConvPlus(toChar);
+                prsNr = toChar.ToCharArray();
+            }
             for (int i = 0; i < 4; i++)
             {
                 numConv[0] += prsNr[i];   //Inserts first four characters into a string array to get year as a string
