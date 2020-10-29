@@ -67,7 +67,7 @@ namespace PersonalNumber
             if (num / 2 == numDouble / 2) return true;     //If equal, it is an even number and the user is female
             else return false;                             //If not, it is an odd number and the user is male
         }
-        static string NumConvMinus(string input)
+        static string NumConvMinus(string input) //Conv
         {
             string output = "";
             char temp;
@@ -123,7 +123,7 @@ namespace PersonalNumber
             }
             return output;
         }
-        static string NumConvPlus(string input)
+        static string NumConvPlus(string input)  //Conv
         {
             string output = "";
             char temp;
@@ -178,6 +178,10 @@ namespace PersonalNumber
                 output += convertArray[i];
             }
             return output;
+        }
+        static bool ControlCheck(string input)
+        {
+            char[] toInt = new char[12];
         }
         static void Main(string[] args)
         {
