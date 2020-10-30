@@ -252,7 +252,8 @@ namespace PersonalNumber
         }
         static void Main(string[] args)
         {
-            string toChar;  //To char
+            bool loopBool = true;
+            string toChar = "";  //To char
             bool yearBool = false;
             bool monthBool = false;
             bool dayBool = false;
@@ -260,18 +261,34 @@ namespace PersonalNumber
             bool controlBool = false;
             char[] prsNr = new char[12];      //Personal number saved in char array
             string[] numConv = new string[5]; //String array for easier conversion to int
-            Console.Write("Skriv ditt personummer:");
-            toChar = Console.ReadLine();  //To char variable used to convert user input to string format
-            prsNr = toChar.ToCharArray(); //Converts user string input to char array
-            if (prsNr[6] == '-')
+            int[] test = new int[12];
+            while (loopBool)
             {
-                toChar = NumConvMinus(toChar);
-                prsNr = toChar.ToCharArray();
-            }
-            else if (prsNr[6] == '+')
-            {
-                toChar = NumConvPlus(toChar);
-                prsNr = toChar.ToCharArray();
+                Console.Write("Skriv ditt personummer:");
+                toChar = Console.ReadLine();  //To char variable used to convert user input to string format
+                prsNr = toChar.ToCharArray(); //Converts user string input to char array
+                try
+                {
+                    if (prsNr[6] == '-')
+                    {
+                        toChar = NumConvMinus(toChar);
+                        prsNr = toChar.ToCharArray();
+                    }
+                    else if (prsNr[6] == '+')
+                    {
+                        toChar = NumConvPlus(toChar);
+                        prsNr = toChar.ToCharArray();
+                    }
+                    for (int i = 0; i < prsNr.Length; i++)
+                    {
+                        test[i] = prsNr[i];
+                    }
+                    loopBool = false;
+                }
+                catch
+                {
+                    Console.WriteLine("Var god skriv endast i 12-siffrigt format, eller 10-siffrigt format med bindestreck eller plustecken.");
+                }
             }
             for (int i = 0; i < 4; i++)
             {
