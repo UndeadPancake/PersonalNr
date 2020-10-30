@@ -67,7 +67,7 @@ namespace PersonalNumber
             if (num / 2 == numDouble / 2) return true;     //If equal, it is an even number and the user is female
             else return false;                             //If not, it is an odd number and the user is male
         }
-        static string NumConvMinus(string input) //Conv
+        static string NumConvMinus(string input) //Converts 10-numbered personal number with a dash into a 12-numbered form
         {
             string output = "";
             int year;
@@ -76,12 +76,12 @@ namespace PersonalNumber
             inputArray = input.ToCharArray();
             input = Convert.ToString(inputArray[0]) + Convert.ToString(inputArray[1]);
             year = Convert.ToInt32(input);
-            if (year >= 21)
+            if (year >= 21)   //Checks if the year is 21 or over, if it is it's 19XX
             {
-                for (int i = 2; i < 12; i++)
+                for (int i = 2; i < 12; i++)        //Starts at two to make it easy for convertArray
                 {
-                    if (inputArray[i - 2] == '-')
-                    {
+                    if (inputArray[i - 2] == '-')        //Checks if this character is a dash
+                    {                                    //if it is it moves the rest of the numbers to get rid of the dash
                         inputArray[i - 2] = inputArray[i - 1];
                         inputArray[i - 1] = inputArray[i];
                         inputArray[i] = inputArray[i + 1];
@@ -90,18 +90,18 @@ namespace PersonalNumber
                     }
                     else
                     {
-                        convertArray[i] = inputArray[i - 2];
-                    }
+                        convertArray[i] = inputArray[i - 2];  //Moves all numbers over to convertArray to make
+                    }                                         //convertArray the full number in 12 numbered form
                 }
-                convertArray[0] = '1';
+                convertArray[0] = '1';                        //Adds the missing year numbers
                 convertArray[1] = '9';
             }
-            else
+            else         //If the year is not 21 or over it is 20XX
             {
-                for (int i = 2; i < 12; i++)
+                for (int i = 2; i < 12; i++)        //Starts at two to make it easy for convertArray
                 {
-                    if (inputArray[i - 2] == '-')
-                    {
+                    if (inputArray[i - 2] == '-')       //Checks if this character is a dash
+                    {                                   //if it is it moves the rest of the numbers to get rid of the dash
                         inputArray[i - 2] = inputArray[i - 1];
                         inputArray[i - 1] = inputArray[i];
                         inputArray[i] = inputArray[i + 1];
@@ -110,19 +110,19 @@ namespace PersonalNumber
                     }
                     else
                     {
-                        convertArray[i] = inputArray[i - 2];
-                    }
+                        convertArray[i] = inputArray[i - 2];  //moves all numbers over to convertArray to make
+                    }                                         //convertArray the full number in 12 numbered form
                 }
-                convertArray[0] = '2';
+                convertArray[0] = '2';                        //Adds the missing year numbers
                 convertArray[1] = '0';
             }
             for (int i = 0; i < 12; i++)
             {
-                output += convertArray[i];
+                output += convertArray[i];                    //makes output the full 12 numbered personal number
             }
             return output;
         }
-        static string NumConvPlus(string input)  //Conv
+        static string NumConvPlus(string input)  //Converts 10-numbered personal number with a dash into a 12-numbered form
         {
             string output = "";
             int year;
@@ -131,12 +131,12 @@ namespace PersonalNumber
             inputArray = input.ToCharArray();
             input = Convert.ToString(inputArray[0]) + Convert.ToString(inputArray[1]);
             year = Convert.ToInt32(input);
-            if (year >= 21)
+            if (year >= 21)   //Checks if the year is 21 or over, if it is it's 18XX
             {
-                for (int i = 2; i < 12; i++)
+                for (int i = 2; i < 12; i++)        //Starts at two to make it easy for convertArray
                 {
-                    if (inputArray[i - 2] == '+')
-                    {
+                    if (inputArray[i - 2] == '+')       //Checks if this character is a plus
+                    {                                   //if it is it moves the rest of the numbers to get rid of the dash
                         inputArray[i - 2] = inputArray[i - 1];
                         inputArray[i - 1] = inputArray[i];
                         inputArray[i] = inputArray[i + 1];
@@ -145,18 +145,18 @@ namespace PersonalNumber
                     }
                     else
                     {
-                        convertArray[i] = inputArray[i - 2];
-                    }
+                        convertArray[i] = inputArray[i - 2];  //moves all numbers over to convertArray to make
+                    }                                         //convertArray the full number in 12 numbered form
                 }
-                convertArray[0] = '1';
+                convertArray[0] = '1';                        //Adds the missing year numbers
                 convertArray[1] = '8';
             }
             else
             {
                 for (int i = 2; i < 12; i++)
                 {
-                    if (inputArray[i - 2] == '+')
-                    {
+                    if (inputArray[i - 2] == '+')       //Checks if this character is a plus
+                    {                                   //if it is it moves the rest of the numbers to get rid of the dash
                         inputArray[i - 2] = inputArray[i - 1];
                         inputArray[i - 1] = inputArray[i];
                         inputArray[i] = inputArray[i + 1];
@@ -165,62 +165,59 @@ namespace PersonalNumber
                     }
                     else
                     {
-                        convertArray[i] = inputArray[i - 2];
-                    }
+                        convertArray[i] = inputArray[i - 2];  //moves all numbers over to convertArray to make
+                    }                                         //convertArray the full number in 12 numbered form
                 }
-                convertArray[0] = '1';
+                convertArray[0] = '1';                        //Adds the missing year numbers
                 convertArray[1] = '9';
             }
             for (int i = 0; i < 12; i++)
             {
-                output += convertArray[i];
+                output += convertArray[i];                    //makes output the full 12 numbered personal number
             }
             return output;
         }
-        static bool ControlCheck(string input)
+        static bool ControlCheck(string input)   //Checks the last number
         {
-            string middleMan;
+            string middleMan;  //Used for converting chars into ints
             int control;
             double id;
             char[] toInt = new char[14];
             int[] toResult = new int[14];
-            toInt = input.ToCharArray();
-            input = "";
+            toInt = input.ToCharArray();         
+            input = "";    //Unassigns input for future use
             middleMan = Convert.ToString(toInt[9]);
-            control = Convert.ToInt32(middleMan);
+            control = Convert.ToInt32(middleMan);        //Saves the control number
             for (int i = 0; i < toInt.Length - 1; i++)
             {
                 id = (double)i;
                 middleMan = Convert.ToString(toInt[i]);
-                toResult[i] = Convert.ToInt32(middleMan);
-                if (i / 2 == id / 2)
-                {
+                toResult[i] = Convert.ToInt32(middleMan); //Puts numbers in int array to be able to double them
+                if (i / 2 == id / 2)                      //Because of how vectors count checks if i is an even number
+                {                                         //If i is even it doubles the number
                     toResult[i] *= 2;
                 }
-                input += toResult[i];
+                input += toResult[i];                     //Puts the resulting numbers into a string to be able to separate them
             }
             toInt = input.ToCharArray();
             for (int i = 0; i < toInt.Length; i++)
             {
                 middleMan = Convert.ToString(toInt[i]);
-                toResult[i] = Convert.ToInt32(middleMan);
+                toResult[i] = Convert.ToInt32(middleMan); //Puts numbers in int array to be able to add them
             }
-            for (int i = 0; i < toResult.Length - 1; i++) //remember here
+            for (int i = 0; i < toResult.Length - 1; i++)
             {
-                toResult[0] += toResult[i + 1];
+                toResult[0] += toResult[i + 1];           //Adds numbers together
             }
-            id = (double)toResult[0];
-            input = "";
-            if (id / 10 == toResult[0] / 10)
+            middleMan = ""; //Unassign middleMan for use in converting
             {
-                toResult[0] = 0;
-            }
-            else
-            {
-                input = Convert.ToString(toResult[0]);
-                toInt = input.ToCharArray();
-                switch (toInt[1])
-                {
+                middleMan = Convert.ToString(toResult[0]);
+                toInt = middleMan.ToCharArray();
+                switch (toInt[1])     //Checks what the final number in the result of all numbers added together is
+                {                     //to determine what the control number should be. It's all based on the final number according to this switch case
+                    case '0':
+                        toResult[0] = 0;
+                        break;
                     case '1':
                         toResult[0] = 9;
                         break;
@@ -255,14 +252,15 @@ namespace PersonalNumber
         }
         static void Main(string[] args)
         {
+            bool loopBool = true;
             string toChar;  //To char
-            bool yearBool;  
-            bool monthBool; 
-            bool dayBool;
-            bool numBool;
-            bool controlBool;
+            bool yearBool = false;
+            bool monthBool = false;
+            bool dayBool = false;
+            bool numBool = false;
+            bool controlBool = false;
             char[] prsNr = new char[12];      //Personal number saved in char array
-            string[] numConv = new string[4]; //String array for easier conversion to int
+            string[] numConv = new string[5]; //String array for easier conversion to int
             Console.Write("Skriv ditt personummer:");
             toChar = Console.ReadLine();  //To char variable used to convert user input to string format
             prsNr = toChar.ToCharArray(); //Converts user string input to char array
@@ -296,14 +294,13 @@ namespace PersonalNumber
                 numConv[3] += prsNr[i];   //Gets numbers as string
             }
             numBool = NumCheck(Convert.ToInt32(numConv[3]));
-            toChar = "";
             for (int i = 2; i < prsNr.Length; i++)
             {
-                toChar += prsNr[i];
-            }
-            controlBool = ControlCheck(toChar);
+                numConv[4] += prsNr[i];   //Gets entire personal number minus the first two letter as string
+            }                             //as the first two letters are unnecessary for method
+            controlBool = ControlCheck(numConv[4]);
             if (yearBool && monthBool && dayBool && numBool && controlBool)   //Checks if all numbers are valid, results have been saved in booleans 
-            {                                                  //to not have to invoke every method here
+            {                                                                 //to not have to invoke every method here
                 Console.Write("Ditt personummer är giltigt. ");
             }
             else
@@ -318,6 +315,7 @@ namespace PersonalNumber
             {
                 Console.WriteLine("Du är en man.");
             }
+            loopBool = false;
             Console.ReadKey();
         }
     }
