@@ -252,7 +252,6 @@ namespace PersonalNumber
         }
         static void Main(string[] args)
         {
-            bool loopBool = true;
             string toChar;  //To char
             bool yearBool = false;
             bool monthBool = false;
